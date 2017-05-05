@@ -18,19 +18,19 @@
 
 ```
 	@Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-    	super.onCreate(savedInstanceState);
-    	// 添加Activity到堆栈  
-    	AppManager.getInstance().addActivity(this);
-    	...
-    }
-    
-    @Override  
+	protected void onCreate(@Nullable Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		// 添加Activity到堆栈  
+		AppManager.getInstance().addActivity(this);
+		...
+	}
+	    
+	@Override  
 	protected void onDestroy() {  
-   		super.onDestroy();  
-    	// 结束Activity从堆栈中移除  
-    	AppManager.getAppManager().finishActivity(this);
-    	...
+		super.onDestroy();  
+		// 结束Activity从堆栈中移除  
+		AppManager.getAppManager().finishActivity(this);
+		...
 	}  
 ```
 ### 三、BaseAdapter
@@ -52,45 +52,45 @@ public class TestAdapter extends BaseAdapter<User> {
 哇，adapter竟然如此简单了，是的，不止如此，该Adapter还支持多样式布局，并且丰富了api：
 
 ```
-public BaseAdapter(Context pContext, Map<Integer, Integer> items) {
-	this.mContext = pContext;
-	this.items = items;
-}
-//重新设置数据源
-public void setData(List<T> pData) {...}
-//追加数据源
-public void addData(List<T> pData) {...}
-//移除某个数据
-public boolean removeData(T t) {...}
-//追加一个数据
-public void addData(T t) {...}
-//头部添加一个数据
-public void addDataToFirst(T t) {...}
-//清空数据
-public void clearData() {...}
-//判断是否为空
-public boolean isEmptyData() {...}
-//禁止滑动
-public void setScrolling(boolean scroll){...}
-//RecycleView没有提供OnItemClicklistener，可通过该方法监听行点击
-protected View.OnClickListener onClickListener;
-public void setOnClickListener(View.OnClickListener onClickListener) {
-	this.onClickListener = onClickListener;
-}
+	public BaseAdapter(Context pContext, Map<Integer, Integer> items) {
+		this.mContext = pContext;
+		this.items = items;
+	}
+	//重新设置数据源
+	public void setData(List<T> pData) {...}
+	//追加数据源
+	public void addData(List<T> pData) {...}
+	//移除某个数据
+	public boolean removeData(T t) {...}
+	//追加一个数据
+	public void addData(T t) {...}
+	//头部添加一个数据
+	public void addDataToFirst(T t) {...}
+	//清空数据
+	public void clearData() {...}
+	//判断是否为空
+	public boolean isEmptyData() {...}
+	//禁止滑动
+	public void setScrolling(boolean scroll){...}
+	//RecycleView没有提供OnItemClicklistener，可通过该方法监听行点击
+	protected View.OnClickListener onClickListener;
+	public void setOnClickListener(View.OnClickListener onClickListener) {
+		this.onClickListener = onClickListener;
+	}
 ```	
 BaseViewHolder中的方法可根据业务自行扩展：
 
 ```
-public BaseViewHolder setVisibility(int viewId, int visibility) {
-	View view = getView(viewId);
-	view.setVisibility(visibility);
-	return this;
-}
-public BaseViewHolder setViewTag(int viewId, Object tag){
-	View view = getView(viewId);
-	view.setTag(tag);
-	return this;
-}
+	public BaseViewHolder setVisibility(int viewId, int visibility) {
+		View view = getView(viewId);
+		view.setVisibility(visibility);
+		return this;
+	}
+	public BaseViewHolder setViewTag(int viewId, Object tag){
+		View view = getView(viewId);
+		view.setTag(tag);
+		return this;
+	}
 ```
 ### 四、功能强大的FxRelativeLayout
 
@@ -134,7 +134,7 @@ Android6.0后，出于安全考虑，加入了动态权限申请，但使用及�
 ##### Url格式
 
 ```
-scheme://host/path
+	scheme://host/path
 ```
 - **scheme：APP内自己定义的，不过这个在H5内跳Native时，需要和前端协商定义好，本地间的跳转可以随自己定义，比如：activity**
 - **host：这个尽可能按各个Activity的所在模块命名**
@@ -145,29 +145,29 @@ scheme://host/path
 >第一步 定义 url
 
 ```java
-mol://user/login
+	mol://user/login
 ```
 
 >第二步 注册 LoginActivity
 
 ``` java
-<activity android:name=".LoginActivity">
-    <intent-filter>
-        <action android:name="android.intent.action.VIEW"/>
-        <category android:name="android.intent.category.DEFAULT"/>
-
-        <data android:scheme="mol"/>
-        <data android:host="user"/>
-        <data android:path="/login"/>/>
-    </intent-filter>
-</activity>
+	<activity android:name=".LoginActivity">
+	    <intent-filter>
+	        <action android:name="android.intent.action.VIEW"/>
+	        <category android:name="android.intent.category.DEFAULT"/>
+	
+	        <data android:scheme="mol"/>
+	        <data android:host="user"/>
+	        <data android:path="/login"/>/>
+	    </intent-filter>
+	</activity>
 ```
 
 >第三步，该openActivity有多个重载函数，可满足所有跳转需求，下面举两个例子
 
 ```
-openActivity("mol://user/login")
-openActivity("mol://user/login", 1001, "username", "张三", "password", "123456")
+	openActivity("mol://user/login")
+	openActivity("mol://user/login", 1001, "username", "张三", "password", "123456")
 ```
 
 ### 七、自定义的ToolBar，使用更加灵活
@@ -175,25 +175,25 @@ openActivity("mol://user/login", 1001, "username", "张三", "password", "123456
 目前支持的设置
 
 ```
-public class ToolBarData{
-    private String title; //标题
-    private int navigationLeftIcon; //左导航,默认back
-    private int navigationRightIcon; //图标右导航
-    public String navigationRightText; //文字右导航
-    private int backgroundColor; //背景色
-    private boolean isShowExitIcon; //退出（网页上返回和退出是分开的）
-}
+	public class ToolBarData{
+	    private String title; //标题
+	    private int navigationLeftIcon; //左导航,默认back
+	    private int navigationRightIcon; //图标右导航
+	    public String navigationRightText; //文字右导航
+	    private int backgroundColor; //背景色
+	    private boolean isShowExitIcon; //退出（网页上返回和退出是分开的）
+	}
 ```
 用法
 
 ```
-@Override
-protected void onCreate(@Nullable Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-	mToolBarData.setTitle("登录");
-	mToolBarData.setNavigationRightText("注册");
-	requestToolBar();
-}
+	@Override
+	protected void onCreate(@Nullable Bundle savedInstanceState) {
+	    super.onCreate(savedInstanceState);
+		mToolBarData.setTitle("登录");
+		mToolBarData.setNavigationRightText("注册");
+		requestToolBar();
+	}
 ```
 
 ### 八、无需引入第三方类库，一个类搞定注解初始化控件
@@ -201,41 +201,41 @@ protected void onCreate(@Nullable Bundle savedInstanceState) {
 AnnotationsUtils
 
 ```
-AnnotationsUtils {
-	@Target(ElementType.FIELD)//表示用在字段上
-	@Retention(RetentionPolicy.RUNTIME)//表示在生命周期是运行时
-	public @interface ViewInject {
-		int value() default 0;
-	}
-	
-	/**
-	* 解析注解
-	*/
-	public void autoInjectAllField(Object object, View view) {
-		try {
-			Field[] fields = object.getClass().getDeclaredFields();//获得Activity中声明的字段
-			for (Field field : fields) {
-				// 查看这个字段是否有我们自定义的注解类标志的
-				if (field.isAnnotationPresent(ViewInject.class)) {
-					ViewInject inject = field.getAnnotation(ViewInject.class);
-					int id = inject.value();
-					if (id > 0) {
-						field.setAccessible(true);
-						field.set(object, view.findViewById(id));//给我们要找的字段设置值
+	AnnotationsUtils {
+		@Target(ElementType.FIELD)//表示用在字段上
+		@Retention(RetentionPolicy.RUNTIME)//表示在生命周期是运行时
+		public @interface ViewInject {
+			int value() default 0;
+		}
+		
+		/**
+		* 解析注解
+		*/
+		public void autoInjectAllField(Object object, View view) {
+			try {
+				Field[] fields = object.getClass().getDeclaredFields();//获得Activity中声明的字段
+				for (Field field : fields) {
+					// 查看这个字段是否有我们自定义的注解类标志的
+					if (field.isAnnotationPresent(ViewInject.class)) {
+						ViewInject inject = field.getAnnotation(ViewInject.class);
+						int id = inject.value();
+						if (id > 0) {
+							field.setAccessible(true);
+							field.set(object, view.findViewById(id));//给我们要找的字段设置值
+						}
 					}
 				}
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
 		}
 	}
-}
 ```
 使用方法
 
 ```
-@AnnotationsUtils.ViewInject(R.id.btnTest)
-private Button mBtnTest;
+	@AnnotationsUtils.ViewInject(R.id.btnTest)
+	private Button mBtnTest;
 ```
 
 ### 九、通用样式表，使xml布局文件更简单
@@ -243,35 +243,35 @@ private Button mBtnTest;
 通过对不同的View定义不同的style，使xml布局文件更简单，下面分别定义了View和LinearLayout的样式：
 
 ```
-<style name="View_UnifyStyle">
-	<item name="android:layout_width">wrap_content</item>
-	<item name="android:layout_height">wrap_content</item>
-</style>
-
-<!--  -->
-<style name="Linearlayout_UnifyStyle" parent="View_UnifyStyle">
-	<item name="android:layout_width">match_parent</item>
-	<item name="android:orientation">horizontal</item>
-	<item name="android:gravity">center_vertical</item>
-</style>
-
-<style name="Box_Linearlayout_UnifyStyle" parent="View_UnifyStyle">
-	<item name="android:layout_width">match_parent</item>
-	<item name="android:background">@color/white</item>
-	<item name="android:orientation">horizontal</item>
-	<item name="android:gravity">center_vertical</item>
-	<item name="android:paddingLeft">@dimen/view_padding</item>
-	<item name="android:paddingRight">@dimen/view_padding</item>
-	<item name="android:paddingTop">@dimen/view_padding_middle</item>
-	<item name="android:paddingBottom">@dimen/view_padding_middle</item>
-</style>
+	<style name="View_UnifyStyle">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+	</style>
+	
+	<!--  -->
+	<style name="Linearlayout_UnifyStyle" parent="View_UnifyStyle">
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:orientation">horizontal</item>
+		<item name="android:gravity">center_vertical</item>
+	</style>
+	
+	<style name="Box_Linearlayout_UnifyStyle" parent="View_UnifyStyle">
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:background">@color/white</item>
+		<item name="android:orientation">horizontal</item>
+		<item name="android:gravity">center_vertical</item>
+		<item name="android:paddingLeft">@dimen/view_padding</item>
+		<item name="android:paddingRight">@dimen/view_padding</item>
+		<item name="android:paddingTop">@dimen/view_padding_middle</item>
+		<item name="android:paddingBottom">@dimen/view_padding_middle</item>
+	</style>
 ```
 假如需要一个带内边距的LinearLayout，只需要这样：
 
 ```
-<LinearLayout
-    style="@style/Box_Linearlayout_UnifyStyle">    
-</LinearLayout>
+	<LinearLayout
+	    style="@style/Box_Linearlayout_UnifyStyle">    
+	</LinearLayout>
 ```
 
 ### 十、一些小改进
