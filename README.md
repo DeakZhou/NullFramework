@@ -528,3 +528,5 @@ private Button mBtnTest;
 
 2、通过自定义onClick事件，解决了快速点击多次响应的问题
 
+3、通过重写BaseActivity中的dispatchTouchEvent()，点击EditText控件范围外的地方，自动收起软件键盘
+
