@@ -12,26 +12,26 @@
 
 ![](https://ojlty2hua.qnssl.com/image-1493993155453-UVEyMDE3MDUwNS0yMTQzMDBAMnggMi5wbmc=.png?imageView2/2/w/200/h/200/q/75|imageslim)
 
-- **Model：**负责取数据
-- **View：**负责显示数据
-- **Presenter：**通过Model取数据并显示到View中
+- Model：负责取数据
+- View：负责显示数据
+- Presenter：通过Model取数据并显示到View中
 
 
 >下面这张图是项目包结构图，我们来分别说一下它们各自的使命：
 
 ![](https://ojlty2hua.qnssl.com/image-1493994961989-UVEyMDE3MDUwNS0yMjM1MDFAMngucG5n.png?imageView2/2/w/300/h/300/q/100|imageslim)
 
-- **adapter：**包括了所有的适配器类，一般为XXXAdapter
-- **base：**里面是项目中抽象出来的基类，如：BaseActivity、BaseView、BasePresenter、BaseViewHolder、BaseAdapter等等
-- **bean：**所有的实体类
-- **config：**所有的配置类
-- **dialog：**所有的弹框类
-- **listener：**所有的自定义事件类
-- **manager：**充当的MVP中的M层，负责从接口或数据库中取数据
-- **permission：**动态获取权限类
-- **ui：**所有的界面类，里面按界面再分包，比如xxx包，里面包含三个类：xxxActivity、xxxContract、xxxLoginPresenter
-- **util：**所有的工具类
-- **view：**所有的自定义View类
+- adapter：包括了所有的适配器类，一般为XXXAdapter
+- base：里面是项目中抽象出来的基类，如：BaseActivity、BaseView、BasePresenter、BaseViewHolder、BaseAdapter等等
+- bean：所有的实体类
+- config：所有的配置类
+- dialog：所有的弹框类
+- listener：所有的自定义事件类
+- manager：充当的MVP中的M层，负责从接口或数据库中取数据
+- permission：动态获取权限类
+- ui：所有的界面类，里面按界面再分包，比如xxx包，里面包含三个类：xxxActivity、xxxContract、xxxLoginPresenter
+- util：所有的工具类
+- view：所有的自定义View类
 
 为了彻底搞清楚MVP的解藕原理，我们通过分析一个登录的过程来分析：
 
