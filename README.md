@@ -19,18 +19,18 @@
 ```java
 @Override
 protected void onCreate(@Nullable Bundle savedInstanceState) {
-	super.onCreate(savedInstanceState);
-	// 添加Activity到堆栈  
-	AppManager.getInstance().addActivity(this);
-	...
+  super.onCreate(savedInstanceState);
+  // 添加Activity到堆栈  
+  AppManager.getInstance().addActivity(this);
+  ...
 }
     
 @Override  
 protected void onDestroy() {  
-	super.onDestroy();  
-	// 结束Activity从堆栈中移除  
-	AppManager.getAppManager().finishActivity(this);
-	...
+  super.onDestroy();  
+  // 结束Activity从堆栈中移除  
+  AppManager.getAppManager().finishActivity(this);
+  ...
 }  
 ```
 ### 三、BaseAdapter
@@ -39,22 +39,22 @@ protected void onDestroy() {
 
 ```java
 public class TestAdapter extends BaseAdapter<User> {
-	public TestAdapter(Context pContext, int layoutId) {
-		super(pContext, layoutId);
-	}	
+  public TestAdapter(Context pContext, int layoutId) {
+    super(pContext, layoutId);
+  }	
 	
-	@Override
-	public void convertView(BaseViewHolder viewHolder, User user) {
-		//viewHolder.showImage(id, value).setOnClickListener(id, onClickListener);
-	}
+  @Override
+  public void convertView(BaseViewHolder viewHolder, User user) {
+    //viewHolder.showImage(id, value).setOnClickListener(id, onClickListener);
+  }
 }
 ```
 哇，adapter竟然如此简单了，是的，不止如此，该Adapter还支持多样式布局，并且丰富了api：
 
 ```java
 public BaseAdapter(Context pContext, Map<Integer, Integer> items) {
-	this.mContext = pContext;
-	this.items = items;
+  this.mContext = pContext;
+  this.items = items;
 }
 //重新设置数据源
 public void setData(List<T> pData) {...}
@@ -75,21 +75,21 @@ public void setScrolling(boolean scroll){...}
 //RecycleView没有提供OnItemClicklistener，可通过该方法监听行点击
 protected View.OnClickListener onClickListener;
 public void setOnClickListener(View.OnClickListener onClickListener) {
-	this.onClickListener = onClickListener;
+  this.onClickListener = onClickListener;
 }
 ```	
 BaseViewHolder中的方法可根据业务自行扩展：
 
 ```java
-public BaseViewHolder setVisibility(int viewId, int visibility) {
-	View view = getView(viewId);
-	view.setVisibility(visibility);
-	return this;
+public BaseViewHolder setVisibility(int viewId, int visibility) {  
+  View view = getView(viewId);
+  view.setVisibility(visibility);
+  return this;
 }
 public BaseViewHolder setViewTag(int viewId, Object tag){
-	View view = getView(viewId);
-	view.setTag(tag);
-	return this;
+  View view = getView(viewId);
+  view.setTag(tag);
+  return this;
 }
 ```
 ### 四、功能强大的FxRelativeLayout
@@ -97,11 +97,11 @@ public BaseViewHolder setViewTag(int viewId, Object tag){
 Android设备显示一个Activity，其实是将xml文件实例化为一个View，将View渲染到窗口上从而显示出来的，而FxRelativeLayout是先将xml实例化后的View加进来，再把自己本身渲染到界面上，由于FxRelativeLayout是自己实现的，因此可以事先将一些通用的View添加进去，目前FxRelativeLayout有如下View层：
 
 ```java
-	ToolBar //应用顶部的导航栏
-	ProgressDialog //非模态进度条
-	LodingDialog //模态进度条
-	ErrorView //错误View，当界面出异常无数据时显示
-	ShadowView //阴影
+  ToolBar //应用顶部的导航栏
+  ProgressDialog //非模态进度条
+  LodingDialog //模态进度条
+  ErrorView //错误View，当界面出异常无数据时显示
+  ShadowView //阴影
 ```
 ### 五、简单易用的动态权限申请
 
@@ -112,11 +112,11 @@ Android6.0后，出于安全考虑，加入了动态权限申请，但使用及�
 requestPermission(PermissionCode.REQUEST_CALL);//申请打电话权限
 //第二步，重载结果函数
 public void handlePermissionResult(int code, boolean isSuccessed){
-	if(isSuccessed){
-		//成功
-	} else {
-		//失败
-	}
+  if(isSuccessed){
+    //成功
+  } else {
+    //失败
+  }
 }
 ```
 
@@ -152,14 +152,14 @@ mol://user/login
 
 ```xml
 <activity android:name=".LoginActivity">
-    <intent-filter>
-        <action android:name="android.intent.action.VIEW"/>
-        <category android:name="android.intent.category.DEFAULT"/>
+  <intent-filter>
+    <action android:name="android.intent.action.VIEW"/>
+    <category android:name="android.intent.category.DEFAULT"/>
 	
-        <data android:scheme="mol"/>
-        <data android:host="user"/>
-        <data android:path="/login"/>/>
-    </intent-filter>
+    <data android:scheme="mol"/>
+    <data android:host="user"/>
+    <data android:path="/login"/>
+  </intent-filter> 
 </activity>
 ```
 
@@ -176,12 +176,12 @@ openActivity("mol://user/login", 1001, "username", "张三", "password", "123456
 
 ```java
 public class ToolBarData{
-    private String title; //标题
-    private int navigationLeftIcon; //左导航,默认back
-    private int navigationRightIcon; //图标右导航
-    public String navigationRightText; //文字右导航
-    private int backgroundColor; //背景色
-    private boolean isShowExitIcon; //退出（网页上返回和退出是分开的）
+  private String title; //标题
+  private int navigationLeftIcon; //左导航,默认back
+  private int navigationRightIcon; //图标右导航
+  public String navigationRightText; //文字右导航
+  private int backgroundColor; //背景色
+  private boolean isShowExitIcon; //退出（网页上返回和退出是分开的）
 }
 ```
 用法
@@ -189,10 +189,10 @@ public class ToolBarData{
 ```java
 @Override
 protected void onCreate(@Nullable Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-	mToolBarData.setTitle("登录");
-	mToolBarData.setNavigationRightText("注册");
-	requestToolBar();
+  super.onCreate(savedInstanceState);
+  mToolBarData.setTitle("登录");
+  mToolBarData.setNavigationRightText("注册");
+  requestToolBar();
 }
 ```
 
@@ -202,33 +202,33 @@ AnnotationsUtils
 
 ```java
 AnnotationsUtils {
-	@Target(ElementType.FIELD)//表示用在字段上
-	@Retention(RetentionPolicy.RUNTIME)//表示在生命周期是运行时
-	public @interface ViewInject {
-		int value() default 0;
-	}
+  @Target(ElementType.FIELD)//表示用在字段上
+  @Retention(RetentionPolicy.RUNTIME)//表示在生命周期是运行时
+  public @interface ViewInject {
+	  int value() default 0;
+  }
 	
-	/**
-	* 解析注解
-	*/
-	public void autoInjectAllField(Object object, View view) {
-		try {
-			Field[] fields = object.getClass().getDeclaredFields();//获得Activity中声明的字段
-			for (Field field : fields) {
-				// 查看这个字段是否有我们自定义的注解类标志的
-				if (field.isAnnotationPresent(ViewInject.class)) {
-					ViewInject inject = field.getAnnotation(ViewInject.class);
-					int id = inject.value();
-					if (id > 0) {
-						field.setAccessible(true);
-						field.set(object, view.findViewById(id));//给我们要找的字段设置值
-					}
-				}
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+  /**
+  * 解析注解
+  */
+  public void autoInjectAllField(Object object, View view) {
+    try {
+	  Field[] fields = object.getClass().getDeclaredFields();//获得Activity中声明的字段
+	  for (Field field : fields) {
+	    // 查看这个字段是否有我们自定义的注解类标志的
+		if (field.isAnnotationPresent(ViewInject.class)) {
+		  ViewInject inject = field.getAnnotation(ViewInject.class);
+		  int id = inject.value();
+		  if (id > 0) {
+		    field.setAccessible(true);
+		    field.set(object, view.findViewById(id));//给我们要找的字段设置值
+          }
+        }
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
 }
 ```
 使用方法
@@ -244,32 +244,32 @@ private Button mBtnTest;
 
 ```xml
 <style name="View_UnifyStyle">
-	<item name="android:layout_width">wrap_content</item>
-	<item name="android:layout_height">wrap_content</item>
+  <item name="android:layout_width">wrap_content</item>
+  <item name="android:layout_height">wrap_content</item>
 </style>
 	
 <style name="Linearlayout_UnifyStyle" parent="View_UnifyStyle">
-	<item name="android:layout_width">match_parent</item>
-	<item name="android:orientation">horizontal</item>
-	<item name="android:gravity">center_vertical</item>
+  <item name="android:layout_width">match_parent</item>
+  <item name="android:orientation">horizontal</item>
+  <item name="android:gravity">center_vertical</item>
 </style>
 	
 <style name="Box_Linearlayout_UnifyStyle" parent="View_UnifyStyle">
-	<item name="android:layout_width">match_parent</item>
-	<item name="android:background">@color/white</item>
-	<item name="android:orientation">horizontal</item>
-	<item name="android:gravity">center_vertical</item>
-	<item name="android:paddingLeft">@dimen/view_padding</item>
-	<item name="android:paddingRight">@dimen/view_padding</item>
-	<item name="android:paddingTop">@dimen/view_padding_middle</item>
-	<item name="android:paddingBottom">@dimen/view_padding_middle</item>
+  <item name="android:layout_width">match_parent</item>
+  <item name="android:background">@color/white</item>
+  <item name="android:orientation">horizontal</item>
+  <item name="android:gravity">center_vertical</item>
+  <item name="android:paddingLeft">@dimen/view_padding</item>
+  <item name="android:paddingRight">@dimen/view_padding</item>
+  <item name="android:paddingTop">@dimen/view_padding_middle</item>
+  <item name="android:paddingBottom">@dimen/view_padding_middle</item>
 </style>
 ```
 假如需要一个带内边距的LinearLayout，只需要这样：
 
 ```xml
 <LinearLayout
-    style="@style/Box_Linearlayout_UnifyStyle">    
+  style="@style/Box_Linearlayout_UnifyStyle">    
 </LinearLayout>
 ```
 
