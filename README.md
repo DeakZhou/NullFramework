@@ -276,5 +276,6 @@ private Button mBtnTest;
 ### 十、一些小改进
 
 1、通过对Toast的重新实现，Toast的样式不会随着手机rom的不同而呈现不周的样式
+
 2、通过自定义onClick事件，解决了快速点击多次响应的问题
 
