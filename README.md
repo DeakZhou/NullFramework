@@ -33,7 +33,7 @@
 - util：所有的工具类
 - view：所有的自定义View类
 
-为了彻底搞清楚MVP的解藕原理，我们通过分析一个登录的过程来分析：
+为了彻底搞清楚MVP的解藕原理，我们通过分析一个登录的过程来分析，首先我们先来看都用到了哪些类（只有与我们分析相关的代码）：
 
 ##### 1、BaseView
 >定义了所有界面都可能会用到的方法
@@ -182,7 +182,7 @@ super.onCreate(savedInstanceState);
     }
   }
 
-//接收消息
+  //接收消息
   protected void handleSubscribeMsg(BaseEvent baseEvent){
     if(baseEvent.getAction() == BaseEvent.NET_DATA){
     //通过网络请求返回的数据，到Presenter处理
