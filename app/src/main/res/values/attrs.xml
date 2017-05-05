@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--带清除按钮的EditText-->
+    <declare-styleable name="ClearEditText">
+        <attr name="isPasswordBox" format="boolean"/>
+        <attr name="clearButtonDrawable" format="reference"/>
+        <attr name="eyeOpenButtonDrawable" format="reference"/>
+        <attr name="eyeCloseButtonDrawable" format="reference"/>
+    </declare-styleable>
+
+</resources>

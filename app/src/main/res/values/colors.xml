@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="app_toolbar_color" type="color">@color/black</item>
+    <item name="default_line_color" type="color">@color/color_DDDDDD</item>
+    <item name="default_fontcolor" type="color">@color/color_3C4248</item>
+    <item name="app_hint" type="color">@color/color_AAAAAA</item>
+    <item name="prompt_color" type="color">@color/color_999999</item>
+    <item name="prompt_deep_color" type="color">@color/color_666666</item>
+    <item name="shadow_bg" type="color">@color/color_78000000</item>
+    <item name="pager_color" type="color">@color/color_F8F8F8</item>
+
+    <color name="toast_alert">#CC0000</color>
+    <color name="toast_confirm">#FF8800</color>
+    <color name="toast_info">#669900</color>
+
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="toast_bg">#80000000</color>
+
+    <color name="white">#ffffffff</color>
+    <color name="black">#00000000</color>
+    <color name="color_10000000">#10000000</color>
+    <color name="color_78000000">#78000000</color>
+    <color name="color_60FFFFFF">#60FFFFFF</color>
+    <color name="color_B5B5B5">#B5B5B5</color>
+    <color name="color_DDDDDD">#DDDDDD</color>
+    <color name="color_3C4248">#3C4248</color>
+    <color name="color_AAAAAA">#AAAAAA</color>
+    <color name="color_999999">#999999</color>
+    <color name="color_666666">#666666</color>
+    <color name="color_F8F8F8">#F8F8F8</color>
+</resources>
